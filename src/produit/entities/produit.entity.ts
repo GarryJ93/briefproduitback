@@ -1,3 +1,4 @@
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { Categorie } from 'src/categorie/entities/categorie.entity';
 import {
   Column,
@@ -13,18 +14,28 @@ export class Produit {
   id: number;
 
   @Column()
+  @IsString()
+  @IsNotEmpty()
   nom: string;
 
   @Column()
+  @IsNumber()
+  @IsNotEmpty()
   prix: number;
 
   @Column()
+  @IsNumber()
+  @IsNotEmpty()
   quantite: number;
 
   @Column()
+  @IsNumber()
+  @IsNotEmpty()
   id_categorie: number;
 
-  @ManyToOne(() => Categorie, (categorie) => categorie.produit, { eager: true })
+  @ManyToOne(() => Categorie, (categorie) => categorie.produit, {
+    eager: true,
+  })
   @JoinColumn({ name: 'id_categorie' })
   categorie: Categorie;
 }

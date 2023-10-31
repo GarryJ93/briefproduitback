@@ -41,6 +41,7 @@ export class ProduitService {
       prix: updateProduitDto.prix,
       quantite: updateProduitDto.quantite,
       id_categorie: updateProduitDto.id_categorie,
+      categorie: updateProduitDto.categorie,
     };
 
     if (!productFound) {

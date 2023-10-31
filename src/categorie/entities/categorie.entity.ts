@@ -1,3 +1,4 @@
+import { IsNotEmpty, IsString } from 'class-validator';
 import { Produit } from 'src/produit/entities/produit.entity';
 import {
   Column,
@@ -13,6 +14,8 @@ export class Categorie {
   id: number;
 
   @Column()
+  @IsString()
+  @IsNotEmpty()
   nom: string;
 
   @OneToMany(() => Produit, (produit) => produit.categorie)
